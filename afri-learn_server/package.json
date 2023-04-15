@@ -1,0 +1,30 @@
+{
+  "name": "afri-learn_server",
+  "version": "1.0.0",
+  "description": "simple learning app for afrilearn",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "mongoDB",
+    "fullstack",
+    "typescript"
+  ],
+  "author": "Maxwell Ihiaso",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/http-errors": "^2.0.1",
+    "@types/node": "^18.15.11"
+  }
+}
