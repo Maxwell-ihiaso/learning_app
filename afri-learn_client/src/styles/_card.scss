@@ -14,10 +14,12 @@
 }
 
 .card {
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,75,9,0.3477766106442577) 69%);
+    background-image:
+    linear-gradient(90deg, rgba(121,75,9,1) 0%,  rgba(2,0,36,0.9) 69%),
+    url("/assets/card-image.jpg");
     // background-repeat: no-repeat;
-    // background-size: cover;
-    background-position: top left;
+    background-size: cover;
+    background-position: bottom center;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
@@ -25,6 +27,7 @@
     margin: 1rem;
     min-height: 18rem;
     min-width: 18rem;
+    max-width: 30rem;
     flex-grow: 1;
 
     &_header {
@@ -84,7 +87,7 @@
         &_title {
             font-size: 1.2rem;
             padding-left: 1.5rem;
-            color: lighten(v.$color-primary, 10%);
+            color: lighten(v.$color-primary, 30%);
             font-weight: 600;
         }
         &_btn {

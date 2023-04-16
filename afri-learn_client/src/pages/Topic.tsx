@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ITopic } from "../interfaces";
 import { toast } from "react-toastify";
 import ReactPlayer from "react-player/lazy";
@@ -14,8 +14,6 @@ const Topic: React.FC = () => {
     topicID: string;
   }>();
   const isTablet = useMediaQuery("(min-width: 768px)")
-
-  const {pathname} = useLocation()
 
   useEffect(() => {
     axios
@@ -47,7 +45,6 @@ const Topic: React.FC = () => {
       });
   }, [topicID]);
 
-  console.log({pathname})
   
   return (
     <section className="topic">
