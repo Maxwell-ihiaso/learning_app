@@ -31,7 +31,7 @@ const errorHandler = (
     ]
    });
   }
-  res.status(status).json({ message: err.message });
+  else res.status(status).json({ message: err.message });
 };
 
 export default errorHandler;

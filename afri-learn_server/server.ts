@@ -33,8 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 // built-in middleware for json
 app.use(express.json());
 
-//serve static files
-app.use("/", express.static(path.join(__dirname, "/public")));
+
 
 // routes
 app.use("/api/v1/topics", topics);
@@ -44,7 +43,7 @@ app.all("*", (req: Request, res: Response, next: NextFunction) => {
   try {
     res.status(404);
     if (req.accepts("json")) {
-      throw createHttpError.NotFound("404 Not Found");
+       throw createHttpError.NotFound("404 Not Found");
     } else {
       res.type("txt").send("404 Not Found");
     }

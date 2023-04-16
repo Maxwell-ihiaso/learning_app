@@ -4,15 +4,22 @@
   "description": "A simple learning app for afrilearn",
   "main": "server.ts",
   "scripts": {
-    "start": "node server.ts",
-    "dev": "ts-node-dev  --respawn --pretty --transpile-only server.ts",
-    "build": "ts-node server.ts"
+    "start": "nodemon server.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "node",
     "mongoDB",
     "fullstack",
     "typescript"
+  ],
+  "pre-commit": [
+      "ts.check",
+      "build",
+      "add-build"
   ],
   "author": "Maxwell Ihiaso",
   "license": "ISC",
@@ -32,6 +39,9 @@
     "@types/http-errors": "^2.0.1",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.0",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0"
   }
