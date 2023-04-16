@@ -1,12 +1,13 @@
 import React from 'react'
+import { TopicList } from '../components/TopicList';
 
 const Topics = () => {
   return (
-    <div>
-      Topics
-      
-    </div>
-  )
+    <section>
+      <h3>Topics</h3>
+      <TopicList />
+    </section>
+  );
 }
 
 export default Topics

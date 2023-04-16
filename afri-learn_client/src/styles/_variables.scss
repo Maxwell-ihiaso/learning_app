@@ -1,0 +1,10 @@
+@use "sass:map";
+$color-primary: brown;
+$breakpoints: (
+    "xs": 320px,
+    "sm": 375px,
+    "md": 425px,
+    "lg": 728px,
+    "xl": 1024px,
+    "xxl": 1440px,
+    );

@@ -20,6 +20,8 @@ router.get(
   "/:topicId",
   async (req: Request, res: Response, next: NextFunction) => {
     try {
+            console.log("here");
+
       const topic = await Topic.findById(req.params.topicId).populate(
         "subject"
       );

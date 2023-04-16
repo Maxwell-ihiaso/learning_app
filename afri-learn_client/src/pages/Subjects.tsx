@@ -1,11 +1,13 @@
 import React from 'react'
+import SubjectsList from '../components/SubjectList';
 
 const Subjects = () => {
   return (
-    <div>
-      Subjects
-    </div>
-  )
+    <section>
+      <h3>Subjects</h3>
+      <SubjectsList />
+    </section>
+  );
 }
 
 export default Subjects

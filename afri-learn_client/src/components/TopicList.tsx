@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ITopic } from "../interfaces";
 import { toast } from "react-toastify";
+import { Topic } from "./Topic";
 import axios from "../api/axios";
 
-const Topic: React.FC = () => {
-  const { topicID } = useParams<{
-    subject: string;
-    topic: string;
-    topicID: string;
-  }>();
-  const [topics, setTopics] = useState<ITopic>({} as ITopic);
+
+export const TopicList: React.FC = () => {
+  const { subject, subjectID } = useParams<{ subject: string; subjectID: string }>();
+  const [topics, setTopics] = useState<ITopic[]>([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios
-      .get(`/api/v1/topics/${topicID}`)
+      .get(`/api/v1/topics/${subjectID}`)
       .then((res) => setTopics(res.data))
       .catch((err) => {
         if (!err.response)
@@ -40,15 +39,23 @@ const Topic: React.FC = () => {
             theme: "colored",
           });
       });
-  }, [topicID]);
+  }, [subjectID]);
 
+  console.log(subjectID)
+  console.log(typeof subjectID)
   return (
     <section>
-      <h3> {topics.title}</h3>
-      <p>{topics.videoUrl}</p>
-      <p>{topics.description}</p>
+        {React.Children.toArray(
+          topics.map((topic) => (
+            <div
+              onClick={() =>
+                navigate(`/${subject}/${topic.title}/${topic._id}`)
+              }
+            >
+              <Topic {...topic} />
+            </div>
+          ))
+        )}
     </section>
   );
 };
-
-export default Topic;

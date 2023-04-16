@@ -37,8 +37,8 @@ app.use(express.json());
 app.use("/", express.static(path.join(__dirname, "/public")));
 
 // routes
-app.use("api/v1/topics", topics);
-app.use("api/v1/subjects", subjects);
+app.use("/api/v1/topics", topics);
+app.use("/api/v1/subjects", subjects);
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
   try {
