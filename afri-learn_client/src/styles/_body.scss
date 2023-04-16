@@ -5,6 +5,9 @@
 .body {
     display: flex;
     flex-direction: column;
+    max-width: map.get(v.$breakpoints, "xxl");
+    margin: 0 auto;
+   
 
      &_sidebar {
         display: flex;
@@ -13,6 +16,7 @@
         padding: 0 1rem;
         position: sticky;
         top: 81px;
+        z-index: 1;
         background: lighten( v.$color-primary, $amount: 100%);
 
 
@@ -56,13 +60,15 @@
     @media (min-width: map.get(v.$breakpoints, "lg")) {
 
         flex-direction: row;
-        
+         padding: 0 1rem;
         
         &_sidebar {
             flex: 1;
             position: relative;
             align-items: start;
             position: fixed;
+            width: 20%;
+            max-width: 20rem;
             
             &::after {
                 content: '';
@@ -71,6 +77,7 @@
                 height: 100vh;
                 position: absolute;
                 right: 0;
+                box-shadow: 0 0 3px 0 lighten($color: v.$color-primary, $amount: 35%);
 
             }
             ul {
@@ -87,6 +94,8 @@
 
         &_outlet {
             flex: 4;
+            margin-left: 24%;
+            padding-left: 1rem;
         }
     }
 

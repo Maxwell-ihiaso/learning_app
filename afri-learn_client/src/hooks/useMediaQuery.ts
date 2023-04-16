@@ -19,4 +19,5 @@ const useMediaQuery = (query: string) => {
 
 // USAGE
 // const isTablet = useMediaQuery(`(min-width: 728px)`)
+
 export default useMediaQuery;

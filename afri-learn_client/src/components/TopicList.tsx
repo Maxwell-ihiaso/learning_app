@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import { ITopic } from "../interfaces";
 import { toast } from "react-toastify";
-import { Topic } from "./Topic";
 import axios from "../api/axios";
-
+import Card from "./Card";
+import { useParams } from "react-router-dom";
 
 export const TopicList: React.FC = () => {
-  const { subject, subjectID } = useParams<{ subject: string; subjectID: string }>();
+  const { subject, subjectID } = useParams<{
+    subject: string;
+    subjectID: string;
+  }>();
   const [topics, setTopics] = useState<ITopic[]>([]);
-  const navigate = useNavigate()
 
   useEffect(() => {
     axios
@@ -41,21 +42,17 @@ export const TopicList: React.FC = () => {
       });
   }, [subjectID]);
 
-  console.log(subjectID)
-  console.log(typeof subjectID)
   return (
-    <section>
-        {React.Children.toArray(
-          topics.map((topic) => (
-            <div
-              onClick={() =>
-                navigate(`/${subject}/${topic.title}/${topic._id}`)
-              }
-            >
-              <Topic {...topic} />
-            </div>
-          ))
-        )}
-    </section>
+    <>
+      {React.Children.toArray(
+        topics.map((topic) => (
+          <Card
+            subjectTitle={subject as string}
+            topicTitle={topic.title}
+            topicID={topic._id}
+          />
+        ))
+      )}
+    </>
   );
 };

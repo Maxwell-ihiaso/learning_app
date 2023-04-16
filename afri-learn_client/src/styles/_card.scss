@@ -1,0 +1,99 @@
+@use "variables" as v;
+@use "sass:map";
+@use "sass:math";
+
+@mixin background(
+    $imgpath,
+    $repeat: no-repeat
+    ) {
+        background: {
+            image: url($imgpath);
+            repeat: $repeat;
+            size: cover;
+    }
+}
+
+.card {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,75,9,0.3477766106442577) 69%);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-position: top left;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem;
+    min-height: 18rem;
+    min-width: 18rem;
+    flex-grow: 1;
+
+    &_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+
+        &_summary {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+            padding: 1rem;
+            padding-left: 1.5rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(15px);
+            background: rgba(v.$color-dark,0.1);
+
+            &_list { 
+                text-align: left;
+                list-style-type: circle;
+                font-size: 0.8rem;
+                color: lighten(v.$color-dark, 100%);
+            }
+
+        }
+
+        &_author {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 2rem;
+            backdrop-filter: blur(15px);
+            background: rgba(v.$color-dark,0.1);
+            font-size: 0.8rem;
+            color: lighten(v.$color-dark, 100%);
+
+            &_name {
+                color: lighten(v.$color-primary, 20%);
+                font-family: "Sedgwick Ave Display", cursive;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &_footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.3rem;
+        border-radius: 2rem;
+        backdrop-filter: blur(15px);
+        background: rgba(v.$color-dark,0.1);
+
+        &_title {
+            font-size: 1.2rem;
+            padding-left: 1.5rem;
+            color: lighten(v.$color-primary, 10%);
+            font-weight: 600;
+        }
+        &_btn {
+            background: lighten(v.$color-dark,100%);
+            padding: 1.5rem 2.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+
+}

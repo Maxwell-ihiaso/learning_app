@@ -4,19 +4,23 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
+
 const Home = lazy(() => import("./pages/Home"));
-const Subjects = lazy(() => import("./pages/Subjects"));
 const Topics = lazy(() => import("./pages/Topics"));
 const Topic = lazy(() => import("./pages/Topic"));
 const Error = lazy(() => import("./pages/Error"));
 
 const App = () => (
+
+
+
+
   <Router>
     <ToastContainer />
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<Home />}>
-          <Route path="subjects" element={<Subjects />} />
+          {/* <Route path="subjects" element={<Subjects />} /> */}
           <Route path=":subject/:subjectID" element={<Topics />} />
           <Route path=":subject/:topic/:topicID" element={<Topic />} />
         </Route>

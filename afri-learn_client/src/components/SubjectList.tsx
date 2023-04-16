@@ -98,4 +98,4 @@ const SubjectsList: React.FC = () => {
   );
 };
 
-export default SubjectsList;
+export default React.memo(SubjectsList)

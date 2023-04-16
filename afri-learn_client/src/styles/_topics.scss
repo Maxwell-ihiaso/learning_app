@@ -1,0 +1,11 @@
+@use "variables" as v;
+@use "sass:map";
+.topics {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    @media (min-width: map.get(v.$breakpoints, "lg")) {
+        gap: 1rem;
+    }
+}

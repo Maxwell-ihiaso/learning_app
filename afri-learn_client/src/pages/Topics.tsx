@@ -1,10 +1,8 @@
-import React from 'react'
 import { TopicList } from '../components/TopicList';
 
 const Topics = () => {
   return (
-    <section>
-      <h3>Topics</h3>
+    <section className='topics'>
       <TopicList />
     </section>
   );
