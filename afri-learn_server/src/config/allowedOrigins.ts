@@ -5,6 +5,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://192.168.1.162:3000",
   "https://learning-app-ten.vercel.app",
+  "https://learning-app-iug3.vercel.app",
 ];
 
 export default allowedOrigins;
