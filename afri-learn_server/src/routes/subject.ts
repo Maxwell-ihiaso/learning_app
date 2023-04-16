@@ -1,16 +1,11 @@
 // subjects.router.ts
-import { NextFunction, Request, Response, Router } from "express";
-import Subject from "../model/Subject";
+import { Router } from "express";
+import { addSubject, deleteSubject, getSubjets } from "../controllers/subjectControllers";
 
 const router: Router = Router();
 
-router.get("/", async (req: Request, res: Response, next: NextFunction) => {
-    try {
-        const subjects = await Subject.find();
-        res.status(200).json(subjects);
-    } catch (error) {
-        next(error)
-    }
-});
+router.get("/", getSubjets);
+router.post("/", addSubject);
+router.delete("/:id", deleteSubject);
 
 export default router;

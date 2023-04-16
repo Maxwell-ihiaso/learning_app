@@ -1,35 +1,18 @@
 // topics.router.ts
-import { NextFunction, Request, Response, Router } from "express";
-import Topic from "../model/Topic";
+import { Router } from "express";
+import {
+  addTopic,
+  deleteTopic,
+  getTopic,
+  getTopics,
+} from "../controllers/topicControllers";
 
 const router: Router = Router();
 
-router.get(
-  "/:subjectId",
-  async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const topics = await Topic.find({ subject: req.params.subjectId });
-      res.status(200).json(topics);
-    } catch (error) {
-        next(error)
-    }
-  }
-);
+router.get("/:subjectId", getTopics);
+router.get("/topic/:topicId", getTopic);
 
-router.get(
-  "/:topicId",
-  async (req: Request, res: Response, next: NextFunction) => {
-    try {
-            console.log("here");
-
-      const topic = await Topic.findById(req.params.topicId).populate(
-        "subject"
-      );
-      res.status(200).json(topic);
-    } catch (error) {
-        next(error)
-    }
-  }
-);
+router.post("/:subjectId", addTopic);
+router.delete("/:topicId", deleteTopic);
 
 export default router;
