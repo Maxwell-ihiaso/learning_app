@@ -4,7 +4,7 @@
   "description": "A simple learning app for afrilearn",
   "main": "server.ts",
   "scripts": {
-    "start": "nodemon src/server.ts",
+    "start": "nodemon src/index.ts",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
@@ -17,9 +17,9 @@
     "typescript"
   ],
   "pre-commit": [
-      "ts.check",
-      "build",
-      "add-build"
+    "ts.check",
+    "build",
+    "add-build"
   ],
   "author": "Maxwell Ihiaso",
   "license": "ISC",
